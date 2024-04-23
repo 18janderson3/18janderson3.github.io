@@ -37,6 +37,6 @@ I was specifically resposible for setting up the frontend and backend frameworks
 
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/Speed)
 
-![hm1](./images/hm1.png)
-![hm2](./images/hm2.png)
+![hm1](./images/hangman1.png)
+![hm2](./images/hangman2.png)
 ![hmg](./images/hmg.gif)
