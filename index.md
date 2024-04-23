@@ -11,8 +11,8 @@ It utilizes the MERN stack with React on the front end, Node.js and express on t
 
 I was specifically resposible for setting up the frontend and backend frameworks, working on UI design, and creating unique API routes. 
 
-[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BankingApp).
+[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BankingApp)
 
-![bank1](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank1.png)
-![bank2](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank2.png)
-![bank2](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank.gif)
+![bank1](./images/bank1.png)
+![bank2](./images/bank2.png)
+![bankg](./images/bank.gif)
