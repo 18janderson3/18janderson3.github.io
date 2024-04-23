@@ -15,12 +15,4 @@ I was specifically resposible for setting up the frontend and backend frameworks
 
 ![bank1](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank1.png)
 ![bank2](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank2.png)
-
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+![bank2](https://github.com/18janderson3/18janderson3.github.io/blob/main/images/bank.gif)
