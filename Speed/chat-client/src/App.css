@@ -1,0 +1,9 @@
+.card-img {
+  margin: 10px 10px;
+  max-width: '20px';
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
