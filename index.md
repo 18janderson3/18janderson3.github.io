@@ -11,9 +11,16 @@ I was specifically resposible for setting up the frontend and backend frameworks
 
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BankingApp)
 
-![bank1](./images/bank1.png)
-![bank2](./images/bank2.png)
 ![bankg](./images/bank.gif)
+
+# Social Media Site
+This is an image sharing forum and social media site. Users can create accouts, start discussions, and post images.
+
+It uses a Django backend for handling authentication, REST APIs, and data storage. The frontend uses react for displaying forum threads.
+
+[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/SocialMedia)
+
+![sm](./images/sm.png)
 
 # Speed Card Game
 This is a Multiplayer game that recreates the card game called California speed. it can be played between two devices through a web browser. The game is played in realtime and then stores the Highscores in a database.
@@ -24,8 +31,6 @@ I was specifically responsible for creating the unique websockets and developing
 
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/Speed)
 
-![speed1](./images/speed1.png)
-![speed2](./images/speed2.png)
 ![speedg](./images/speed.gif)
 
 # Hangman Game
@@ -37,6 +42,4 @@ I was specifically resposible for setting up the frontend and backend frameworks
 
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/Speed)
 
-![hm1](./images/hangman1.png)
-![hm2](./images/hangman2.png)
 ![hmg](./images/hmg.gif)
