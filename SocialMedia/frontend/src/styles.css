@@ -1,0 +1,26 @@
+.data a, .data span, .data tr, .data td, .data p { white-space: pre; }
+body {
+    font-family: arial,helvetica,sans-serif;
+    font-size: 10pt;
+}
+
+.fs-7 {
+  font-size: 14px;
+}
+
+.lh{
+    color:aliceblue;
+    text-decoration: none; 
+}
+
+.lh:hover{
+    color: #88B4F8;
+    text-decoration: none; 
+}
+a:hover{
+    cursor: pointer;
+}
+
+.tcard:hover{
+    cursor: pointer;
+}
