@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TeacherStudentTracker.Views.NewSchoolClassWindow"
+              Width="600" Height="400"
+             	WindowStartupLocation="CenterScreen"
+              Background="Transparent"
+              TransparencyLevelHint="AcrylicBlur"
+              ExtendClientAreaToDecorationsHint="True"
+              Icon="/Assets/TSTLogoTransparent2.ico"
+              Title="Add a New Class"
+              ShowInTaskbar="False">
+	
+	<Window.Styles>
+		<StyleInclude Source="/Styles.axaml" />
+	</Window.Styles>
+	
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+		<DockPanel x:Name="MenuBar" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<TextBlock VerticalAlignment="Center" Margin="10 0">Add a New Class:</TextBlock>
+			<Menu DockPanel.Dock="Top">	
+			</Menu>
+		</DockPanel>
+
+		<ThemeVariantScope RequestedThemeVariant="Light">
+			<Border BorderBrush="Black" BorderThickness="1" CornerRadius="0" Padding="1">
+				<Grid x:Name="MainGrid" ShowGridLines="False" ColumnDefinitions="100, *" RowDefinitions="35, *">
+					<Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Fill="{StaticResource CustomGray1}"></Rectangle>
+					<Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" ShowGridLines="False" ColumnDefinitions="*" RowDefinitions="40, 40, 40, *, 100" Margin="5 5 10 0">
+						<DockPanel Grid.Column="0" Grid.Row="0">
+							<TextBlock VerticalAlignment="Center">Required Fields:</TextBlock>
+						</DockPanel>
+						<DockPanel Grid.Column="0" Grid.Row="1">
+							<TextBlock VerticalAlignment="Center">Name:</TextBlock>
+							<TextBox x:Name="nameBox" Margin="5 0" Height="10" VerticalAlignment="Center"></TextBox>
+						</DockPanel>
+						<DockPanel Grid.Column="0" Grid.Row="2">
+							<Grid ColumnDefinitions="*, 150" RowDefinitions="*">
+								<TextBox Grid.Column="0" Grid.Row="0" x:Name="fieldBox" Margin="5 0" Height="10" VerticalAlignment="Center"></TextBox>
+								<Button Grid.Column="1" Grid.Row="0" Classes="genericButton" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding AddCustomFieldCommand}" Margin="0 0 0 0">
+									<TextBlock TextElement.Foreground="Black">Add Custom Field</TextBlock>
+								</Button>
+							</Grid>
+						</DockPanel>
+						<DockPanel Grid.Column="0" Grid.Row="3">
+							<ListBox x:Name="fieldListBox" Background="Transparent" TextElement.Foreground="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Stretch" 
+							  SelectionMode="Single" SelectionChanged="DeleteField">
+
+							</ListBox>
+						</DockPanel>
+						<Button Classes="majorButton" Grid.Column="0" Height="60" Width="200" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding SaveSchoolClassCommand}" Margin="0 0 0 0">
+							<TextBlock TextElement.Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.FontSize="20">Save Class</TextBlock>
+						</Button>
+					</Grid>
+				</Grid>
+			</Border>
+		</ThemeVariantScope>
+		
+	</Panel>
+</UserControl>

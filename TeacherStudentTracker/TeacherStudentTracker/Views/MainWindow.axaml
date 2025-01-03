@@ -1,0 +1,326 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:TeacherStudentTracker.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:views="clr-namespace:TeacherStudentTracker.Views"
+		xmlns:controls="clr-namespace:Controls"
+		mc:Ignorable="d" d:DesignWidth="1800" d:DesignHeight="900"
+		x:Class="TeacherStudentTracker.Views.MainWindow"
+		Icon="/Assets/TSTLogoTransparent2.ico"
+		Title="Teacher Student Tracker"
+		TransparencyLevelHint="AcrylicBlur"
+		Background="Transparent"
+		ExtendClientAreaToDecorationsHint="True"
+		WindowStartupLocation="CenterScreen">
+	<Window.Styles>
+		<StyleInclude Source="/Styles.axaml"/>
+	</Window.Styles>
+
+	<Border BorderBrush="Black" BorderThickness="1" CornerRadius="0" Padding="1">
+		<Panel x:Name="MainPanel">
+			<ExperimentalAcrylicBorder IsHitTestVisible="False">
+				<ExperimentalAcrylicBorder.Material>
+					<ExperimentalAcrylicMaterial
+						BackgroundSource="Digger"
+						TintColor="Black"
+						TintOpacity="1"
+						MaterialOpacity="0.65"/>
+				</ExperimentalAcrylicBorder.Material>
+			</ExperimentalAcrylicBorder>
+
+			<DockPanel x:Name="MenuBar" VerticalAlignment="Top" HorizontalAlignment="Left">
+				<Menu DockPanel.Dock="Top">
+					<MenuItem Header="_File">
+						<MenuItem Header="_Open" Command="{Binding LoadSchoolClassCommand}">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource folder_open_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<Separator/>
+						<MenuItem Header="_Save" Command="{Binding SaveSchoolClassCommand}">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource save_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem Header="_Save As" Command="{Binding SaveAsSchoolClassCommand}">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource save_as_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<Separator/>
+						<MenuItem Header="_Import" IsEnabled="False">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource arrow_import_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem Header="_Export" IsEnabled="False">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource arrow_export_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+					</MenuItem>
+					<MenuItem Header="_Edit" IsVisible="False">
+						<MenuItem Header="_Undo" IsVisible="False">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource arrow_curve_left_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<MenuItem Header="_Redo" IsVisible="False">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource arrow_curve_right_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+						<Separator/>
+						<MenuItem Header="_Settings">
+							<MenuItem.Icon>
+								<PathIcon Data="{StaticResource launcher_settings_regular}"/>
+							</MenuItem.Icon>
+						</MenuItem>
+					</MenuItem>
+				</Menu>
+			</DockPanel>
+
+			<Grid x:Name="MainGrid" ColumnDefinitions="200, *" RowDefinitions="35, 42, *" >
+				<Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BorderBrush="Black"
+						BorderThickness="0 1 1 0" CornerRadius="0" Padding="1">
+					<Grid ColumnDefinitions="*" RowDefinitions="40, *">
+						<Rectangle Fill="{StaticResource CustomGray3}" Grid.Row="0"/>
+						<Rectangle Fill="{StaticResource CustomGray2}" Grid.Row="1"/>
+					
+						<ThemeVariantScope RequestedThemeVariant="Light" Grid.Column="0" Grid.Row="0">
+							<Panel>
+								<Button Margin="5" HorizontalAlignment="Left" VerticalAlignment="Top"
+										Command="{Binding AddSchoolClassCommand}"
+										ToolTip.Tip="Create A New Class"
+										ToolTip.Placement="LeftEdgeAlignedTop"
+										ToolTip.VerticalOffset="0">
+									<PathIcon Data="{StaticResource book_add_regular}"/>
+								</Button>
+								<TextBox IsVisible="False" Margin="0 4 4 4" Width="140" HorizontalAlignment="Right"
+										 Text="{Binding SearchClasses}"
+										 Watermark="Search for Class..."/>
+							</Panel>
+						</ThemeVariantScope>
+
+						<DockPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+							<ListBox x:Name="classListBox" Background="Transparent"
+									 TextElement.Foreground="Black"
+									 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+									 VerticalAlignment="Stretch" SelectionMode="Single"
+									 SelectionChanged="SelectedClassFromList">
+								<ListBox.Styles>
+									<Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+										<Setter Property="Width" Value="200"/>
+										<Setter Property="HorizontalAlignment" Value="Left"/>
+										<Setter Property="VerticalAlignment" Value="Top"/>
+										<Setter Property="Background"
+												Value="{StaticResource MomsBlue1}"/>
+									</Style>
+								</ListBox.Styles>
+								<ListBox.ContextMenu>
+									<ContextMenu>
+										<MenuItem Header="Delete" Command="{Binding DeleteClassCommand}"/>
+										<MenuItem Header="Duplicate" Command="{Binding DuplicateClassCommand}"/>
+										<MenuItem Header="Edit" Command="{Binding EditClassCommand}"/>
+									</ContextMenu>
+								</ListBox.ContextMenu> 
+							</ListBox>
+						</DockPanel>
+					</Grid>
+				</Border>
+			
+				<Rectangle Grid.Column="1" Grid.Row="1" Fill="{StaticResource CustomGray2}"/>
+				<Rectangle Grid.Column="1" Grid.Row="2" Fill="{StaticResource CustomGray1}"/>
+
+				<Border Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" BorderBrush="Black"
+						BorderThickness="0 2 0 0" CornerRadius="0" Padding="0">
+					<ThemeVariantScope RequestedThemeVariant="Light">
+						<Grid RowDefinitions="40, *">
+							<TextBlock x:Name="selectedClassBlock" HorizontalAlignment="Center"
+									   VerticalAlignment="Center">Selected Class: </TextBlock>
+							<TextBlock x:Name="testText" IsVisible="False" Margin="-300 0 0 0"
+									   HorizontalAlignment="Center" VerticalAlignment="Center">
+								Test: </TextBlock>
+
+							<TabControl Margin="-4 -6 -6 0" HorizontalAlignment="Stretch"
+										VerticalAlignment="Stretch" Grid.RowSpan="2">
+								<!--Student View-->
+								<TabItem Header="Student View" IsSelected="True">
+									<Panel x:Name="studentView" TextElement.Foreground="Black">
+										<TextBlock x:Name="startingPromptTextBlock"
+												   VerticalAlignment="Center"
+												   HorizontalAlignment="Center"/>
+
+										<!--TODO: Fix vertical scrolling and grid row spacing-->
+										<ScrollViewer AllowAutoHide="False">
+											<Grid x:Name="studentsGrid" RowDefinitions="280, *" ColumnDefinitions="250, *">
+												<!--Buttons here will be automatically
+												generated by the C#.-->
+												
+												<!--
+												<Button Classes="studentStyle"
+												    Command="{Binding EditStudentCommand}"
+												    Grid.Column="0" Grid.Row="0">
+													<Panel Classes="studentPanelStyle">
+														<Image Classes="studentStyle"
+														Source="{Binding DefaultStudentImage}"/>
+														<TextBlock Classes="studentStyle">
+														Example Student</TextBlock>
+													</Panel>
+												</Button>
+												-->
+											</Grid>
+										</ScrollViewer>
+									</Panel>
+								</TabItem>
+
+								<!--Seating Chart View-->
+								<TabItem Header="Seating Chart View" IsSelected="False">
+									<Panel>
+										<!--Seating Chart Snap Grid-->
+										<Canvas x:Name="snapGridCanvas"
+												Background="{StaticResource CustomGray1}"
+												HorizontalAlignment="Stretch"
+												VerticalAlignment="Stretch" Margin="-8 -4 -6 0">
+											<!--Lines here are generated by the C#.-->
+										</Canvas>
+										
+										
+										<TextBlock x:Name="startingPromptTextBlock2"
+												   VerticalAlignment="Center"
+												   HorizontalAlignment="Center">
+											Select a Class to get started...</TextBlock>
+
+										<Panel x:Name="seatingChartMiscBox">
+											<!--The movable control misc objects here will be
+											automatically generated by the C#.-->
+
+											<!--
+											<controls:CustomMovableMiscObject
+											    Background="{StaticResource CustomGray2}"
+											    CornerRadius="5" Width="200" Height="140" 
+											    BorderBrush="Black" BorderThickness="1">
+												<Panel x:Name="_0MiscObject">
+													<TextBox Classes="miscObjectStyle"/>
+
+													<Border Classes="miscObjectStyle"
+																x:Name="_0MiscObject_Left"
+																VerticalAlignment="Stretch"
+																HorizontalAlignment="Left"
+																Width="10"/>
+													<Border Classes="miscObjectStyle"
+																x:Name="_0MiscObject_Right"
+																VerticalAlignment="Stretch"
+																HorizontalAlignment="Right"
+																Width="10"/>
+													<Border Classes="miscObjectStyle"
+																x:Name="_0MiscObject_Top"
+																VerticalAlignment="Top"
+																HorizontalAlignment="Stretch"
+																Height="10"/>
+													<Border Classes="miscObjectStyle"
+																x:Name="_0MiscObject_Bottom"
+																VerticalAlignment="Bottom"
+																HorizontalAlignment="Stretch"
+																Height="10"/>
+												</Panel>
+											</controls:CustomMovableMiscObject>
+											-->
+										
+									</Panel>
+										<Panel x:Name="seatingChartDeskBox">
+											<!--The movable control desks here will be
+											automatically generated by the C#.-->
+											
+											<!--
+											<controls:CustomMovableDesk
+											    Background="{StaticResource CustomGray2}"
+											    CornerRadius="5" Height="200" Width="140"
+											    BorderBrush="Black" BorderThickness="1">
+												<DockPanel x:Name="_0Desk">
+													<Border Classes="deskStyle"/>
+													<TextBox Classes="deskStyle" Watermark="Desk #"/>
+												</DockPanel>
+											</controls:CustomMovableDesk>
+											-->
+										</Panel>
+										<Panel x:Name="seatingChartMainBox">
+											<!--The movable control students here will
+											be automatically generated by the C#.-->
+
+											<!--
+											<controls:CustomMovableStudent
+											    Background="{StaticResource CustomGray3}"
+											    CornerRadius="5" Height="135" Width="120"
+											    BorderBrush="Black" BorderThickness="1">
+												<DockPanel x:Name="_0SeatingChild">
+													<Image Classes="studentStyle2"
+													Source="{Binding DefaultStudentImage}"/>
+													<Label Classes="studentStyle2"
+													Content="Test Student"/>
+												</DockPanel>
+											</controls:CustomMovableStudent>
+											-->
+										</Panel>
+
+										<DockPanel VerticalAlignment="Top" HorizontalAlignment="Right">
+											<NumericUpDown x:Name="gridSizeNumeric"
+														   ShowButtonSpinner="False"
+														   FormatString="{}{0:0}" Value="10"
+														   Increment="1" Minimum="1" Maximum="100"
+														   MinWidth="40"
+														   ValueChanged="DrawLinesOnSnapGrid"/>
+											<CheckBox x:Name="lockToGridCheckbox" Margin="10 0"
+													  IsCheckedChanged="DrawLinesOnSnapGrid">
+												Lock to grid</CheckBox>
+											<Button Margin="0 0 8 0" HorizontalAlignment="Right"
+													VerticalAlignment="Top"
+													Command="{Binding AddMiscObjectCommand}"
+													ToolTip.Tip="Add a Misc Object"
+													ToolTip.Placement="LeftEdgeAlignedTop"
+													ToolTip.VerticalOffset="0">
+												<PathIcon
+													Data="{StaticResource mail_inbox_add_regular}"/>
+											</Button>
+											<Button Margin="-1 0" HorizontalAlignment="Right"
+													VerticalAlignment="Top"
+													Command="{Binding AddDeskCommand}"
+													ToolTip.Tip="Add a Desk"
+													ToolTip.Placement="LeftEdgeAlignedTop"
+													ToolTip.VerticalOffset="0">
+												<PathIcon
+													Data="{StaticResource calendar_add_regular}"/>
+											</Button>
+										</DockPanel>
+
+									</Panel>
+								</TabItem>
+							</TabControl>
+
+							<DockPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
+								<TextBox Margin="0 4 4 4" Width="170" Text="{Binding SearchStudents}"
+										 Watermark="Search for Student..." Height="32"
+										 VerticalAlignment="Top" HorizontalAlignment="Right"
+										 TextAlignment="Left"
+										 IsVisible="False"/>
+								<ProgressBar IsIndeterminate="True" IsVisible="{Binding IsBusy}"
+											 HorizontalAlignment="Right"/>
+
+								<Button Margin="5" Command="{Binding NewStudentCommand}"
+										VerticalAlignment="Top" HorizontalAlignment="Right"
+										ToolTip.Tip="Create A New Student"
+										ToolTip.Placement="LeftEdgeAlignedTop"
+										ToolTip.VerticalOffset="0">
+									<PathIcon Data="{StaticResource person_add_regular}"/>
+								</Button>
+							</DockPanel>
+								
+						</Grid>
+					</ThemeVariantScope>
+				</Border>
+				
+			</Grid>
+		</Panel>
+	</Border>
+</Window>

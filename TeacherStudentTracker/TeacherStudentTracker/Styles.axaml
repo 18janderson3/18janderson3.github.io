@@ -1,0 +1,179 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+
+	<Styles>
+		<Style Selector="Button.studentStyle">
+			<Setter Property="Background" Value="{StaticResource CustomGray2}"/>
+			<Setter Property="Margin" Value="5 10"/>
+			<Setter Property="Width" Value="230"/>
+			<Setter Property="Height" Value="260"/>
+			<Setter Property="ToolTip.Tip" Value="Select this student"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.studentStyle:pointerover /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource MomsBlue2}"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Width" Value="230"/>
+			<Setter Property="Height" Value="260"/>
+			<Setter Property="ToolTip.Tip" Value="Select this student"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.studentStyle:pressed /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource MomsBlue1}"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Width" Value="230"/>
+			<Setter Property="Height" Value="260"/>
+			<Setter Property="ToolTip.Tip" Value="Select this student"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+
+		<Style Selector="Panel.studentStyle">
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+		
+		<Style Selector="Image.studentStyle">
+			<Setter Property="Height" Value="200"/>
+			<Setter Property="Width" Value="200"/>
+		</Style>
+
+		<Style Selector="TextBlock.studentStyle">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+		</Style>
+	</Styles>
+
+	<Styles>
+		<Style Selector="Image.studentStyle2">
+			<Setter Property="Height" Value="100"/>
+			<Setter Property="Width" Value="100"/>
+			<Setter Property="DockPanel.Dock" Value="Top"/>
+			<Setter Property="Margin" Value="0 10 0 0"/>
+		</Style>
+
+		<Style Selector="Label.studentStyle2">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="DockPanel.Dock" Value="Bottom"/>
+		</Style>
+	</Styles>
+
+	<Styles>
+		<Style Selector="TextBox.deskStyle">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="DockPanel.Dock" Value="Bottom"/>
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Watermark" Value="Desk #"/>
+		</Style>
+
+		<Style Selector="Border.deskStyle">
+			<Setter Property="VerticalAlignment" Value="Top"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Background" Value="{StaticResource CustomGray1}"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="Height" Value="135"/>
+			<Setter Property="Width" Value="120"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="DockPanel.Dock" Value="Top"/>
+			<Setter Property="Margin" Value="0 10 0 0"/>
+		</Style>
+	</Styles>
+
+	<Styles>
+		<Style Selector="TextBox.miscObjectStyle">
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="5"/>
+			<Setter Property="Width" Value="110"/>
+			<Setter Property="Watermark" Value="Object Name"/>
+		</Style>
+
+		<Style Selector="Border.miscObjectStyle">
+			<Setter Property="Background" Value="{StaticResource CustomGray2}"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+	</Styles>
+
+	<Styles>
+		<Style Selector="Label.deskStyle2">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="DockPanel.Dock" Value="Bottom"/>
+		</Style>
+
+		<Style Selector="Border.deskStyle2">
+			<Setter Property="VerticalAlignment" Value="Top"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Background" Value="{StaticResource CustomGray1}"/>
+			<Setter Property="CornerRadius" Value="5"/>
+			<Setter Property="Height" Value="120"/>
+			<Setter Property="Width" Value="135"/>
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="DockPanel.Dock" Value="Top"/>
+			<Setter Property="Margin" Value="0 10 0 0"/>
+		</Style>
+	</Styles>
+
+	<Styles>
+		<Style Selector="Button.genericButton">
+			<Setter Property="Background" Value="{StaticResource CustomGray2}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.genericButton:pointerover /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource MomsBlue2}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.genericButton:pressed /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource MomsBlue1}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+
+		<Style Selector="Button.majorButton">
+			<Setter Property="Background" Value="{StaticResource MomsBlue2}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.majorButton:pointerover /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource MomsBlue1}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+		<Style Selector="Button.majorButton:pressed /template/ ContentPresenter">
+			<Setter Property="Background" Value="{StaticResource CustomGray2}"/>
+			<Setter Property="ToolTip.Placement" Value="LeftEdgeAlignedTop"/>
+			<Setter Property="ToolTip.VerticalOffset" Value="0"/>
+			<Setter Property="TextElement.Foreground" Value="Black"/>
+		</Style>
+	</Styles>
+		
+</Styles>

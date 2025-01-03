@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
+        x:Class="TeacherStudentTracker.Views.ErrorWindow"
+		Width="800" Height="400"
+		WindowStartupLocation="CenterScreen"
+		Background="Transparent"
+		TransparencyLevelHint="AcrylicBlur"
+		ExtendClientAreaToDecorationsHint="True"
+		Icon="/Assets/TSTLogoTransparent2.ico"
+		Title="TST Error"
+		ExtendClientAreaChromeHints="NoChrome"
+		ShowInTaskbar="False">
+	
+	<Window.Styles>
+		<StyleInclude Source="/Styles.axaml" />
+	</Window.Styles>
+	
+	<Panel>
+		<ExperimentalAcrylicBorder IsHitTestVisible="False">
+			<ExperimentalAcrylicBorder.Material>
+				<ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+			</ExperimentalAcrylicBorder.Material>
+		</ExperimentalAcrylicBorder>
+
+		<DockPanel x:Name="MenuBar" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<TextBlock VerticalAlignment="Center" Margin="10 0">Error Handler</TextBlock>
+			<Menu DockPanel.Dock="Top">	
+			</Menu>
+		</DockPanel>
+
+		<ThemeVariantScope RequestedThemeVariant="Light">
+			<Border BorderBrush="Black" BorderThickness="1" CornerRadius="0" Padding="1">
+				<Grid x:Name="MainGrid" ShowGridLines="False" ColumnDefinitions="*, *" RowDefinitions="35, 70, 3*, *">
+					<Rectangle Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Fill="{StaticResource CustomGray1}"></Rectangle>
+					<TextBlock x:Name="errorDescription" Grid.Column="0" Grid.Row="1" Margin="5" Grid.ColumnSpan="2" TextWrapping="Wrap">An error occured. If you would like to create a backup of your save, click the Create Backup button below. Then please copy the error below and email it to JaredBrian5828@gmail.com with a description of what you were doing at the time the error occured.</TextBlock>
+					<TextBox x:Name="errorBox" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" Margin="20" HorizontalAlignment="Stretch" TextWrapping="Wrap"></TextBox>
+						
+					<Button Classes="majorButton" Grid.Column="0" Height="60" Width="200" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CloseWindowCommand}" Margin="0 0 0 0">
+						<TextBlock TextElement.Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.FontSize="20">Close Window</TextBlock>
+					</Button>
+
+					<Button Classes="majorButton" Grid.Column="1" Height="60" Width="200" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CreateBackupCommand}" Margin="0 0 0 0">
+						<TextBlock TextElement.Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.FontSize="20">Create Backup</TextBlock>
+					</Button>
+				</Grid>
+			</Border>
+		</ThemeVariantScope>
+		
+	</Panel>
+</Window>

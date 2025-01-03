@@ -2,6 +2,24 @@
 layout: default
 ---
 
+# Social Media Site
+This is an image sharing forum and social media site. Users can create accouts, start discussions, and post images.
+
+It uses a Django backend for handling authentication, REST APIs, and data storage. The frontend uses react for displaying forum threads.
+
+[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/SocialMedia)
+
+![sm](./images/sm.png)
+
+# Student Tracker Tool
+This student tracker tool was made for school teachers to use to organize their classes and make seating charts. It allows you to customize student data and room layouts.
+
+The app was built using .Net Core and the Avalonia UI library. It features a GUI system that allows the user to create student lists with custom data and to create custom objects and resize them within a room layout. It can run on multiple operating systems and is capable of saving and loading data on the host machine.
+
+[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/TeacherStudentTracker)
+
+![hmg](./images/tst.gif)
+
 # Mock Banking App
 This app simulates an online banking interface. there are pages for signing up, logging in, viewing different accounts, depositing and widrawing money, transfering money between accounts, and viewing transaction history.
 
@@ -12,15 +30,6 @@ I was specifically resposible for setting up the frontend and backend frameworks
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BankingApp)
 
 ![bankg](./images/bank.gif)
-
-# Social Media Site
-This is an image sharing forum and social media site. Users can create accouts, start discussions, and post images.
-
-It uses a Django backend for handling authentication, REST APIs, and data storage. The frontend uses react for displaying forum threads.
-
-[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/SocialMedia)
-
-![sm](./images/sm.png)
 
 # Speed Card Game
 This is a Multiplayer game that recreates the card game called California speed. it can be played between two devices through a web browser. The game is played in realtime and then stores the Highscores in a database.
@@ -33,13 +42,4 @@ I was specifically responsible for creating the unique websockets and developing
 
 ![speedg](./images/speed.gif)
 
-# Hangman Game
-This Hangman game is played by a user in a web browser guessing letters until the word is guessed correctly or the user fails. Upon which the user is redirected to a page detailing high scores for the game.
 
-It utilizes the MERN stack with React on the front end, Node.js and express on the backend, and MongoDB for storing data. The game uses REST API calls to randomly select a word from a MongoDB database and then keep track of user guesses on the backend so that the user cannot cheat using web browser tools. The player name and high scores are then also stored in the MongoDB database.
-
-I was specifically resposible for setting up the frontend and backend frameworks, working on UI design, and creating unique API routes.
-
-[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/Speed)
-
-![hmg](./images/hmg.gif)
