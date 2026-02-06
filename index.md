@@ -1,6 +1,17 @@
 ---
 layout: default
 ---
+Some of my personal and school projects
+
+# Bluetooth Radio App
+App I made for myself designed to replace my car radio that automatically detects a car stereo bluetooth device and uses it to play radio streams from the internet. Stations can be customized and be controlled from buttons on the bluetooth transmitter.
+To use it I do not need to touch the phone it runs on at all.
+
+This app was written mostly in kotlin.
+
+[Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BluetoothRadio)
+
+![bt](./images/bt.jpeg)
 
 # Social Media Site
 This is an image sharing forum and social media site. Users can create accouts, start discussions, and post images.
