@@ -11,7 +11,7 @@ This app was written mostly in kotlin.
 
 [Link to GitHub Repo](https://github.com/18janderson3/18janderson3.github.io/tree/main/BluetoothRadio)
 
-![bt](./images/bt.jpeg)
+![bt](./images/bt.png)
 
 # Social Media Site
 This is an image sharing forum and social media site. Users can create accouts, start discussions, and post images.
